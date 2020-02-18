@@ -12,8 +12,7 @@ after_success:
   - docker build -t  suissitakwa/multi-nginx ./nginx 
   - docker build -t  suissitakwa/multi-server ./server
   - docker build -t  suissitakwa/multi-worker ./worker  
-#log in to docker CLI 
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-s
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
   - docker push suissitakwa/multi-client
   - docker push suissitakwa/multi-nginx
   - docker push suissitakwa/multi-server
