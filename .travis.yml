@@ -1,0 +1,8 @@
+sudo: required
+services: 
+  - docker 
+
+before_install: 
+  - docker build -t suissitakwa/complex -f Dockerfile.dev .
+script: 
+  - docker run -e CI=true suissitakwa/complex npm run test 
